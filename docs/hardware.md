@@ -10,9 +10,9 @@ Home Assistant whether the door is open or closed.
 |---|---|---|
 | M5StampS3A with 2.54 mm headers | M5Stack | $7.50 — already had it |
 | CC1101 radio module with SMA connector | Amazon | $8.99 |
-| eifagur 315 MHz SMA male antenna, two-pack | Amazon | Not available |
-| Mini breadboard | Not recorded | Not available |
-| Eight jumper wires | Not recorded | Not available |
+| eifagur 315 MHz SMA male antenna, two-pack (use one) | Amazon | $9.99 per pack |
+| ELEGOO 170-point mini breadboards, six-pack (use one) | Amazon | $5.99 per pack |
+| ELEGOO 120-piece Dupont ribbon wire kit (use eight wires) | Amazon | $6.98 per kit — already had it |
 | USB cable and power supply | Already on hand | No additional cost |
 | THIRDREALITY Zigbee Smart Garage Door Tilt Sensor | Amazon | Not available |
 
@@ -22,11 +22,14 @@ separately from the ESP32. See [sensor setup](garage-door-integration.md).
 
 ## Cost
 
-The parts are an ESP32 board, radio, antenna, breadboard, eight jumpers, USB power
-and a separate tilt sensor. **The board and radio total $16.49.** I already had
-the M5Stamp and USB power, so **the known additional cost is $8.99 for the radio**,
-plus the antenna, breadboard, wires and tilt sensor. I don't have prices recorded
-for those items, so I can't give a complete build total yet.
+I already had the M5Stamp, USB power and a supply of Dupont wires. The radio,
+antenna two-pack and breadboard six-pack total **$24.97**, before the tilt sensor.
+That buys spare antennas and breadboards as well as the ones used here.
+
+Buying the M5Stamp and wire kit too brings the listed parts total to **$39.45**,
+excluding USB power and the tilt sensor. The sensor price isn't recorded, so a
+complete total including door feedback is still unavailable. These totals use
+whole-pack prices rather than dividing the cost among the parts used.
 
 These are historical prices, before shipping and tax. An existing Home Assistant
 installation and Zigbee coordinator are also needed and aren't included here.
@@ -41,6 +44,13 @@ I haven't measured its performance at 310 MHz.
 Other fixed-code openers may use the same hardware with different settings and a
 different signal. Match the frequency, modulation and protocol before transmitting.
 Keep your own garage code private.
+
+## Wiring tip
+
+I recommend Dupont ribbon wires: peel off the eight wires you need and keep them
+together as a ribbon to make the wiring easier to follow and less tangled. The
+ELEGOO kit includes male-to-female, male-to-male and female-to-female wires; use
+the ends that match your board and radio headers.
 
 ## Assembly
 
