@@ -3,7 +3,7 @@
 The reusable packages use ESPHome's official
 [packages](https://esphome.io/components/packages/) and
 [substitutions](https://esphome.io/components/substitutions/) mechanisms.
-Credential references remain in the user-local root file. You can replace local package includes with an immutable commit
+Keep credentials in your local configuration. You can replace local package includes with an immutable commit
 reference or a published tag. For example, **only after a real v1.0.0 tag exists**:
 
 ```yaml
@@ -18,13 +18,12 @@ Keep the root Wi-Fi/API/OTA blocks from the local example and override substitut
 there. Pin a reviewed published commit instead of following a moving branch.
 
 `esphome.project` is present as `recalde.garagewave`, version `0.1.0-dev`.
-Following the official [creator guidance](https://esphome.io/guides/creators/),
-`dashboard_import` and `name_add_mac_suffix` were evaluated. We do not provide a
-pre-flashed adoption image: private credentials, hardware matching and RF setup
-still need deliberate local configuration. A MAC suffix is optional for multiple
+I use USB flashing through Device Builder or the CLI. You still need to configure
+your credentials, radio and remote signal locally. See ESPHome's
+[creator guide](https://esphome.io/guides/creators/) if you want to explore
+`dashboard_import` for your own distribution. A MAC suffix is optional for multiple
 units but changes entity names; explicit node names are clearer for this build.
-USB flashing through Device Builder or CLI is the supported route. Browser-based
-installation and one-click adoption are not advertised or hosted.
+There is no hosted browser installer or pre-flashed adoption image.
 
 ## Repository metadata
 
@@ -41,7 +40,7 @@ Keep specific compatibility claims tied to the hardware you've actually used.
 ## Suggested first release description
 
 GarageWave 0.1.0 preview introduces a small native ESPHome CC1101 configuration,
-M5Stamp-S3A reference wiring, a momentary transmit button with duplicate suppression,
+M5Stamp-S3A wiring, a momentary transmit button with duplicate suppression,
 and a Home Assistant cover combining toggle commands with independent Zigbee tilt
 feedback. Includes installation, compatibility, safety and troubleshooting guides,
 a logical wiring SVG, validation fixtures and CI.

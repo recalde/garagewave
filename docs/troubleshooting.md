@@ -12,7 +12,7 @@ automatically. See [validation](validation.md) for what has actually been checke
 | SPI fails / FF0F / FFFF / 0000 | 3.3 V supply, ground, exact module orientation, CSN/MOSI/MISO/SCK continuity |
 | No reception | Correct matched module/antenna/frequency, GDO2 pin, receiver debug logging, modulation and actual signal presence |
 | No transmitted signal | `rf_enabled` is false by default; verify your private waveform, GDO0 wiring and TX/RX lifecycle |
-| Remote doesn't respond | Actual measured frequency, antenna, modulation, signed pulse timing, frame repeats; compiled YAML is not RF evidence |
+| Remote doesn't respond | Actual measured frequency, antenna, modulation, signed pulse timing, frame repeats; a successful compile doesn't confirm the radio signal |
 | 433 MHz board at 310 | Do not solve matching-network mismatch with more transmit power; obtain suitable hardware |
 | Rolling-code remote | Unsupported; fixed replay is not an implementation of rolling-code authentication |
 | Door state reversed | Observe fully closed/open, invert normalized sensor polarity only, recheck offline state |

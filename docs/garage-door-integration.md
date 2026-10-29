@@ -21,7 +21,7 @@ Use the official [Template integration](https://www.home-assistant.io/integratio
        garagewave: !include garagewave/garage-cover.yaml
    ```
 
-   Copy the supplied file under `/config/garagewave/garage-cover.yaml`. Merge with
+   Copy `home-assistant/garage-cover.yaml` under `/config/garagewave/garage-cover.yaml`. Merge with
    existing `homeassistant:` configuration rather than defining that key twice.
 4. Replace `binary_sensor.garage_tilt`, `binary_sensor.garagewave_connectivity`
    and `button.garagewave_transmit` with actual

@@ -36,9 +36,9 @@ sold for 433 MHz will perform properly at 310 MHz.
 *Here's the assembly. The wiring map below is easier to follow than the wires
 under the glue.*
 
-![Reference electrical connections, not physical module orientation](assets/wiring.svg)
+![GarageWave wiring diagram](assets/wiring.svg)
 
-| CC1101 reference pin | M5Stamp-S3A |
+| CC1101 pin | M5Stamp-S3A |
 |---|---|
 | 1 GND | GND |
 | 2 VCC | 3V3 |
@@ -106,5 +106,4 @@ Include module markings, antenna, ESPHome version and exactly what you tested.
 Remove credentials and access waveforms from logs and screenshots. Run the checks
 in [validation](docs/validation.md) before sending a change. MIT licensed; built
 on [ESPHome](https://esphome.io/) and [Home Assistant](https://www.home-assistant.io/).
-Their software, documentation and trademarks belong to their respective owners;
-no custom radio driver or third-party source code is vendored here.
+GarageWave uses their native integrations; there is no separate radio driver to install.

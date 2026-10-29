@@ -17,7 +17,7 @@ Never bypass safety beams or obstruction protection. A tilt sensor is not an
 obstruction detector. Keep the original controls available. Test with the garage
 in sight, maintain clearance, and take particular care with unattended closing.
 Never infer movement from a successful API call and never automatically retry a
-toggle after a failed or uncertain result. Unknown/offline state blocks reference
+toggle after a failed or uncertain result. Unknown/offline state blocks
 cover actions. Intermediate motion, stale Zigbee state and restarts need human
 judgment; this is not a certified safety controller.
 

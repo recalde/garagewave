@@ -60,6 +60,6 @@ unknown/offline states block commands, and restoring power/network/sensor causes
 no replay. Test both directions with safety sensors working and the garage in sight.
 
 The Home Assistant check also runs in CI using Python 3.14 and Home Assistant
-2026.10.4, with a temporary configuration containing only the reference package
+2026.10.4, with a temporary configuration containing only the example package
 and automations. No live installation is contacted. Both firmware builds produced
 factory and OTA images in disposable build storage; none are published or flashed.

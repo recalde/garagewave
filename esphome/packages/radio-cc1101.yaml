@@ -1,4 +1,4 @@
-# No credentials or household RF patterns in this reusable package.
+# Keep your credentials and garage signal in your local configuration.
 substitutions:
   rf_frequency: 310MHz
   rf_modulation: ASK/OOK

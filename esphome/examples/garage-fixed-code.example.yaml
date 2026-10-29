@@ -1,4 +1,4 @@
-# Schema/compile fixture: gated OFF, with no real waveform.
+# Use this example for configuration checks and builds. Transmission stays off.
 packages:
   base: !include ../garagewave-stamp-s3a.yaml
 substitutions:

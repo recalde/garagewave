@@ -1,23 +1,32 @@
-# Eight electrical connections
+# Eight jumper wires
 
-[The README pin table](../README.md) and [SVG diagram](../assets/wiring.svg)
-show the connections used for this build. The diagram is a logical wiring map, not a
-photograph, footprint, connector view or guarantee of module pin orientation.
-Pin 1 must be located using the exact module datasheet and physical markings.
-Do not infer pin numbering from which way an antenna connector points.
+This is how I wired my Stamp to the CC1101. The [pin table](../README.md) and
+[diagram](../assets/wiring.svg) show the same eight connections.
 
-Disconnect power. Put the Stamp's 2.54 mm headers in a mini breadboard, ensuring
-separate nets are not shorted in connected rows. Fit eight short jumpers as shown,
-then check continuity and 3V3-to-GND resistance before power-up. Jumper connector
-sex depends on the headers you actually fitted. GDO0 is the TX input; GDO2 is the
-optional RX output. Both use 3.3 V signaling. Never connect radio VCC to 5 V.
-The ESP board may accept USB power separately; that does not make radio VCC 5 V.
+The diagram shows electrical connections, not the physical header layout. Find
+pin 1 using your module's markings and datasheet; don't judge orientation from
+the antenna connector alone.
 
-Attach the correctly matched antenna and ensure the module's power requirements
-fit the board's 3.3 V regulator. Confirm module pin orientation before publishing
-an assembly photograph or treating this table as validated hardware wiring.
+## Connect the boards
 
-For SPI errors, inspect CSN GPIO5, SCK GPIO9, MOSI GPIO7 and MISO GPIO1, common
-ground and supply voltage first. `0000`, `FFFF` or `FF0F` identity readings can
-indicate communication trouble. Check for swapped MOSI/MISO, loose breadboard
-contacts and incorrect pin numbering before adjusting RF settings.
+Disconnect power first. Put the Stamp's 2.54 mm headers in the mini breadboard,
+then connect the eight Dupont wires using the pin table. Check which breadboard
+holes share a connection so you don't accidentally short two pins together.
+
+Use jumper ends that fit your headers, and keep the wires together as a ribbon
+where practical. GDO0 carries the transmit signal; GDO2 is used for optional
+reception. Both use 3.3 V signaling.
+
+Power the radio from **3.3 V, never 5 V**, and connect both boards to the same
+ground. USB can power the Stamp, but the radio still connects to its 3V3 pin.
+Check your module's current requirements against the Stamp's regulator capacity.
+
+Before switching on, check continuity, look for a short between 3V3 and GND, and
+attach the correct antenna.
+
+## If SPI isn't working
+
+Check CSN GPIO5, SCK GPIO9, MOSI GPIO7 and MISO GPIO1, then the common ground and
+supply voltage. Readings such as `0000`, `FFFF` or `FF0F` can point to a communication
+problem. Look for swapped MOSI/MISO wires, loose breadboard contacts or a reversed
+module connection before changing the radio settings.

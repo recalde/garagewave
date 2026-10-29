@@ -1,4 +1,4 @@
-# Receive only through the exposed controls: transmit gate remains false.
+# Listen for signals with transmission disabled.
 packages:
   base: !include garage-fixed-code.example.yaml
 logger:
@@ -9,4 +9,4 @@ remote_receiver:
   tolerance: 50%
   filter: 50us
   idle: 10ms
-# These are diagnostic starting points, not verified Stanley timing.
+# Adjust these receiver settings for your remote's signal.

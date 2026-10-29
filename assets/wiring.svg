@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 570" role="img" aria-labelledby="title desc">
-<title id="title">GarageWave eight reference connections</title>
+<title id="title">GarageWave eight jumper connections</title>
 <desc id="desc">Logical pin map only. Verify exact module orientation. Use 3.3 volt power and signaling.</desc>
 <rect width="860" height="570" rx="16" fill="#f7f7f2"/>
 <g font-family="sans-serif" fill="#172d32"><text x="35" y="45" font-size="27" font-weight="bold">GarageWave · eight jumper connections</text>
