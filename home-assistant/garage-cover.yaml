@@ -1,0 +1,52 @@
+# Load as a Home Assistant package; replace entity IDs after checking states.
+# This example assumes tilt ON = open. Invert only the normalized sensor below
+# if your fully-open/fully-closed observations establish the reverse polarity.
+template:
+  - binary_sensor:
+      - name: GarageWave door open
+        unique_id: garagewave_door_open
+        device_class: garage_door
+        availability: "{{ states('binary_sensor.garage_tilt') in ['on', 'off'] }}"
+        state: "{{ is_state('binary_sensor.garage_tilt', 'on') }}"
+  - cover:
+      - name: GarageWave garage
+        unique_id: garagewave_garage
+        device_class: garage
+        availability: >-
+          {{ states('binary_sensor.garagewave_door_open') in ['on', 'off']
+             and (expand('button.garagewave_transmit') | count == 1)
+             and not is_state('button.garagewave_transmit', 'unavailable')
+             and is_state('binary_sensor.garagewave_connectivity', 'on') }}
+        state: "{{ is_state('binary_sensor.garagewave_door_open', 'on') }}"
+        open_cover:
+          - action: script.garagewave_request
+            data:
+              target_open: true
+        close_cover:
+          - action: script.garagewave_request
+            data:
+              target_open: false
+script:
+  garagewave_request:
+    alias: GarageWave state-aware request
+    mode: single
+    fields:
+      target_open:
+        required: true
+        selector:
+          boolean:
+    sequence:
+      - condition: template
+        value_template: >-
+          {{ states('binary_sensor.garagewave_door_open') in ['on', 'off']
+             and (expand('button.garagewave_transmit') | count == 1)
+             and not is_state('button.garagewave_transmit', 'unavailable')
+             and is_state('binary_sensor.garagewave_connectivity', 'on')
+             and ((target_open | bool and is_state('binary_sensor.garagewave_door_open', 'off'))
+               or (not (target_open | bool) and is_state('binary_sensor.garagewave_door_open', 'on'))) }}
+      - action: button.press
+        target:
+          entity_id: button.garagewave_transmit
+      # Lock out subsequent requests while the door may still be moving.
+      # Measure travel time and increase this interval if needed. Never retry.
+      - delay: "00:00:30"

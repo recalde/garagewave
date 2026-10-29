@@ -1,0 +1,42 @@
+name: Validate
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install esphome==2026.10.1
+      - name: YAML, links, RF fixture policy, cover guards and ESPHome compile
+        run: python scripts/validate.py --compile
+      - name: Scan tracked files and history for credentials
+        run: |
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.0 git /repo --redact
+  home-assistant:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: pip install homeassistant==2026.10.4
+      - name: Check Home Assistant package and automations in isolation
+        run: |
+          config_dir=$(mktemp -d)
+          cp home-assistant/garage-cover.yaml "$config_dir/garage-cover.yaml"
+          cp home-assistant/automations.example.yaml "$config_dir/automations.yaml"
+          cat > "$config_dir/configuration.yaml" <<'CONFIG'
+          homeassistant:
+            packages:
+              garagewave: !include garage-cover.yaml
+          automation: !include automations.yaml
+          CONFIG
+          hass --script check_config --config "$config_dir"

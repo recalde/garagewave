@@ -1,0 +1,31 @@
+# A single script owns the entire RF action and cooldown. No queued presses.
+script:
+  - id: garagewave_transmit
+    mode: single
+    then:
+      - if:
+          condition:
+            lambda: return ${rf_enabled};
+          then:
+            - remote_transmitter.transmit_raw:
+                transmitter_id: rf_tx
+                code: !lambda return std::vector<int32_t>{${rf_pulses}};
+                carrier_frequency: 0Hz
+                repeat:
+                  times: ${rf_repeat}
+                  wait_time: ${rf_repeat_gap}
+          else:
+            - logger.log: "Transmission disabled. Configure your own verified signal locally."
+      - delay: ${command_cooldown}
+button:
+  - platform: template
+    name: Transmit
+    icon: mdi:garage
+    on_press:
+      - script.execute: garagewave_transmit
+substitutions:
+  rf_enabled: "false"
+  rf_pulses: "0"
+  rf_repeat: "1"
+  rf_repeat_gap: 10ms
+  command_cooldown: 30s

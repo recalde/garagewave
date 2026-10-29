@@ -1,0 +1,12 @@
+# Receive only through the exposed controls: transmit gate remains false.
+packages:
+  base: !include garage-fixed-code.example.yaml
+logger:
+  level: DEBUG
+remote_receiver:
+  pin: ${radio_rx}
+  dump: raw
+  tolerance: 50%
+  filter: 50us
+  idle: 10ms
+# These are diagnostic starting points, not verified Stanley timing.

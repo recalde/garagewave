@@ -1,0 +1,32 @@
+substitutions:
+  node_name: garagewave
+  friendly_name: GarageWave
+esphome:
+  name: ${node_name}
+  friendly_name: ${friendly_name}
+  min_version: 2026.10.1
+  project:
+    name: recalde.garagewave
+    version: 0.1.0-dev
+esp32:
+  board: esp32-s3-devkitc-1
+  flash_size: 8MB
+  framework:
+    type: esp-idf
+logger:
+  level: INFO
+binary_sensor:
+  - platform: status
+    name: Connectivity
+sensor:
+  - platform: uptime
+    name: Uptime
+    entity_category: diagnostic
+  - platform: wifi_signal
+    name: Wi-Fi signal
+    update_interval: 60s
+    entity_category: diagnostic
+text_sensor:
+  - platform: version
+    name: Firmware version
+    entity_category: diagnostic

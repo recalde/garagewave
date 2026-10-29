@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 570" role="img" aria-labelledby="title desc">
+<title id="title">GarageWave eight reference connections</title>
+<desc id="desc">Logical pin map only. Verify exact module orientation. Use 3.3 volt power and signaling.</desc>
+<rect width="860" height="570" rx="16" fill="#f7f7f2"/>
+<g font-family="sans-serif" fill="#172d32"><text x="35" y="45" font-size="27" font-weight="bold">GarageWave · eight jumper connections</text>
+<text x="35" y="77" font-size="17">Electrical map only — not physical header placement</text>
+<rect x="35" y="105" width="235" height="382" rx="12" fill="#e3eceb"/>
+<rect x="590" y="105" width="235" height="382" rx="12" fill="#e3eceb"/>
+<text x="55" y="140" font-size="21" font-weight="bold">CC1101 module</text>
+<text x="610" y="140" font-size="21" font-weight="bold">M5Stamp-S3A</text>
+<text x="55" y="187" font-size="18">1 GND</text>
+<path d="M270 182 H590" stroke="#555" stroke-width="4"/>
+<circle cx="270" cy="182" r="5" fill="#555"/><circle cx="590" cy="182" r="5" fill="#555"/>
+<text x="610" y="187" font-size="18">GND</text>
+<text x="55" y="226" font-size="18">2 VCC</text>
+<path d="M270 221 H590" stroke="#b42318" stroke-width="4"/>
+<circle cx="270" cy="221" r="5" fill="#b42318"/><circle cx="590" cy="221" r="5" fill="#b42318"/>
+<text x="610" y="226" font-size="18">3V3</text>
+<text x="55" y="265" font-size="18">3 GDO0 · TX</text>
+<path d="M270 260 H590" stroke="#a15c00" stroke-width="4"/>
+<circle cx="270" cy="260" r="5" fill="#a15c00"/><circle cx="590" cy="260" r="5" fill="#a15c00"/>
+<text x="610" y="265" font-size="18">GPIO15</text>
+<text x="55" y="304" font-size="18">4 CSN</text>
+<path d="M270 299 H590" stroke="#7f3fbf" stroke-width="4"/>
+<circle cx="270" cy="299" r="5" fill="#7f3fbf"/><circle cx="590" cy="299" r="5" fill="#7f3fbf"/>
+<text x="610" y="304" font-size="18">GPIO5</text>
+<text x="55" y="343" font-size="18">5 SCK</text>
+<path d="M270 338 H590" stroke="#166da6" stroke-width="4"/>
+<circle cx="270" cy="338" r="5" fill="#166da6"/><circle cx="590" cy="338" r="5" fill="#166da6"/>
+<text x="610" y="343" font-size="18">GPIO9</text>
+<text x="55" y="382" font-size="18">6 MOSI</text>
+<path d="M270 377 H590" stroke="#127d69" stroke-width="4"/>
+<circle cx="270" cy="377" r="5" fill="#127d69"/><circle cx="590" cy="377" r="5" fill="#127d69"/>
+<text x="610" y="382" font-size="18">GPIO7</text>
+<text x="55" y="421" font-size="18">7 MISO</text>
+<path d="M270 416 H590" stroke="#3949ab" stroke-width="4"/>
+<circle cx="270" cy="416" r="5" fill="#3949ab"/><circle cx="590" cy="416" r="5" fill="#3949ab"/>
+<text x="610" y="421" font-size="18">GPIO1</text>
+<text x="55" y="460" font-size="18">8 GDO2 · RX</text>
+<path d="M270 455 H590" stroke="#8d3d69" stroke-width="4"/>
+<circle cx="270" cy="455" r="5" fill="#8d3d69"/><circle cx="590" cy="455" r="5" fill="#8d3d69"/>
+<text x="610" y="460" font-size="18">GPIO13</text>
+<text x="35" y="520" font-size="15" font-weight="bold">3.3 V radio power only · common ground · attach the correct antenna</text>
+<text x="35" y="548" font-size="16">433 MHz module ≠ verified 310 MHz hardware. Confirm markings before powering.</text></g></svg>

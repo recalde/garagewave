@@ -1,0 +1,8 @@
+type: entities
+title: Garage
+entities:
+  - cover.garagewave_garage
+  - binary_sensor.garagewave_door_open
+  - binary_sensor.garagewave_connectivity
+  # Uncomment only if your Zigbee integration exposes this entity:
+  # - sensor.garage_tilt_battery

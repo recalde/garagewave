@@ -1,0 +1,7 @@
+# Schema/compile fixture: gated OFF, with no real waveform.
+packages:
+  base: !include ../garagewave-stamp-s3a.yaml
+substitutions:
+  node_name: garagewave-test
+  rf_enabled: "false"
+  rf_pulses: "0"

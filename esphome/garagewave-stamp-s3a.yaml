@@ -1,0 +1,14 @@
+# Copy to garagewave.local.yaml in THIS directory; keep secrets alongside it.
+packages:
+  device: !include packages/device.yaml
+  radio: !include packages/radio-cc1101.yaml
+  garage: !include packages/garage-button.yaml
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+api:
+  encryption:
+    key: !secret api_encryption_key
+ota:
+  - platform: esphome
+    encryption: {}

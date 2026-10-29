@@ -1,0 +1,12 @@
+# Local credentials, waveforms, captures and build products
+secrets.yaml
+*.local.yaml
+private/
+captures/
+.esphome/
+.pioenvs/
+.piolibdeps/
+__pycache__/
+.venv/
+*.bin
+*.elf

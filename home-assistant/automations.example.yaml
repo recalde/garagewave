@@ -1,0 +1,46 @@
+# Merge this list under automation:, then customize notification service/entities.
+- alias: Garage left open
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.garagewave_door_open
+      to: "on"
+      for: "00:15:00"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: Garage
+        message: Garage has been open for 15 minutes. Check it before acting.
+- alias: GarageWave offline
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.garagewave_connectivity
+      to: "off"
+      for: "00:02:00"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: GarageWave offline
+        message: Check controller power and Wi-Fi. No command will be retried.
+- alias: Garage tilt battery low
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.garage_tilt_battery
+      below: 20
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: Replace the garage tilt sensor battery.
+- alias: Garage opened overnight
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.garagewave_door_open
+      from: "off"
+      to: "on"
+  conditions:
+    - condition: time
+      after: "23:00:00"
+      before: "06:00:00"
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: Garage opened overnight. Check whether this was expected.

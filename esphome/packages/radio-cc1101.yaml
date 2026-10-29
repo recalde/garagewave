@@ -1,0 +1,31 @@
+# No credentials or household RF patterns in this reusable package.
+substitutions:
+  rf_frequency: 310MHz
+  rf_modulation: ASK/OOK
+  rf_output_power: "-30"
+  spi_clk: GPIO9
+  spi_mosi: GPIO7
+  spi_miso: GPIO1
+  radio_cs: GPIO5
+  radio_tx: GPIO15
+  radio_rx: GPIO13
+spi:
+  clk_pin: ${spi_clk}
+  mosi_pin: ${spi_mosi}
+  miso_pin: ${spi_miso}
+cc1101:
+  id: radio
+  cs_pin: ${radio_cs}
+  frequency: ${rf_frequency}
+  modulation_type: ${rf_modulation}
+  output_power: ${rf_output_power}
+  packet_mode: false
+remote_transmitter:
+  id: rf_tx
+  pin: ${radio_tx}
+  carrier_duty_percent: 100%
+  non_blocking: false
+  on_transmit:
+    - cc1101.begin_tx: radio
+  on_complete:
+    - cc1101.begin_rx: radio
