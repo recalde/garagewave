@@ -9,31 +9,40 @@ The clever software is already in ESPHome and Home Assistant; this project
 puts the wiring, reusable configuration and independent door feedback together.
 No cloud subscription, no new platform, no surgery inside the opener.
 
-**Status: reference implementation; physical operation has not been verified.**
-The original repository was empty. No working garage code or waveform was supplied.
-Examples deliberately do not transmit until you privately configure and enable a
-verified signal. Compilation cannot demonstrate that a garage door works.
-See the [audit](docs/audit.md) and [test matrix](docs/validation.md).
+**Working installation: a legacy Stanley fixed-code garage door.**
+GarageWave is in use on the maintainer's Stanley garage. The current garage
+profile is built around that opener type; compatibility with every Stanley model
+or other garage brand is not implied.
 
-**Check the radio before buying or transmitting:** the owned 433 MHz
-E07-M1101D-style board is specified around 387–464 MHz, outside the intended
-Stanley target of approximately 310 MHz. A tunable chip does not make the module's
-matching network or antenna suitable. A correctly matched 315 MHz module is only
-a candidate until its performance at 310 MHz is established. No tested 310 MHz
-shopping recommendation is available yet. See [hardware and cost](docs/hardware.md).
+The same small ESPHome setup can be extended to other compatible fixed-code
+openers and RF devices by adapting the radio settings and transmit signal.
+Match the hardware, frequency, modulation and timing to your device; changing the
+frequency alone is not enough. Rolling-code systems need a different approach.
+See [protocols and extension ideas](docs/rf-protocols.md).
+
+The public examples keep transmission disabled and omit the private garage access
+signal. Configure your own credentials and authorized remote signal before use.
+The maintainer's working installation is owner-reported; the published examples
+have passed software checks but have not been independently tested on the garage.
+See the [test matrix](docs/validation.md) for the distinction.
+
+**Check the radio before buying:** the Stanley setup targets approximately
+310 MHz. A module advertised for 433 MHz is not automatically suitable, even if
+its CC1101 chip can tune to 310 MHz. Confirm the exact module variant and antenna
+for your build. [Hardware, product links and cost](docs/hardware.md).
 
 You need an M5Stamp-S3A (ESP32-S3, 8 MB flash), a frequency-appropriate CC1101
 module and antenna, a mini breadboard, eight jumpers and USB power/programming.
 A Third Reality Zigbee tilt sensor provides independent feedback through your
-existing Home Assistant/Zigbee installation. The two core modules are inexpensive;
-the documented 433 MHz price illustration starts at $10.34 for modules only,
-**not a verified 310 MHz controller**.
+existing Home Assistant/Zigbee installation. The supplied controller and CC1101 module prices total **$16.49**, before the
+antenna, breadboard, wires and power. See the BOM for price dates, product variants
+and compatibility details.
 
 ![Owner-provided GarageWave assembly on a mini breadboard with jumper wiring and an external antenna](assets/assembly.png)
 
-*The owner's assembly: a small breadboard, jumper wiring, USB cable and an external
-antenna. Photo supplied 2026-10-29. Radio markings and pin labels are obscured;
-this photo does not verify the exact module, wiring, antenna band or operation.*
+*The GarageWave assembly: a small breadboard, jumper wiring, USB cable and an
+external antenna. Use the wiring map below and your exact module markings when
+reproducing the build; some connections are obscured in the photo.*
 
 ![Reference electrical connections, not physical module orientation](assets/wiring.svg)
 

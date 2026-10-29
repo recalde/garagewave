@@ -1,7 +1,14 @@
 # Validation matrix
 
-Software checks run in an isolated development environment on 2026-10-29. Physical tests require the actual
-board, antenna, opener and sensor. No hardware tests were performed by this work.
+The maintainer reports GarageWave working on their legacy Stanley fixed-code
+garage opener. This establishes a reported working installation for that opener
+type, not compatibility with every Stanley model or other garage brand.
+
+Software checks ran in an isolated development environment on 2026-10-29. The
+published examples were not independently flashed or physically tested during
+repository preparation. The detailed rows below describe that validation work;
+they do not negate the maintainer's report. No private deployed waveform was
+collected or published.
 
 | Layer | Result / evidence |
 |---|---|
