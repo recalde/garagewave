@@ -14,7 +14,7 @@ Home Assistant whether the door is open or closed.
 | ELEGOO 170-point mini breadboards, six-pack (use one) | Amazon | $5.99 per pack |
 | ELEGOO 120-piece Dupont ribbon wire kit (use eight wires) | Amazon | $6.98 per kit — already had it |
 | USB cable and power supply | Already on hand | No additional cost |
-| THIRDREALITY Zigbee Smart Garage Door Tilt Sensor | Amazon | Not available |
+| THIRDREALITY Zigbee Smart Garage Door Tilt Sensor | Amazon | $19.99 |
 
 I use the THIRDREALITY sensor with adjustable sensitivity and advertised two-year
 battery life. It needs a Zigbee hub or coordinator; mine connects to Home Assistant
@@ -23,12 +23,12 @@ separately from the ESP32. See [sensor setup](garage-door-integration.md).
 ## Cost
 
 I already had the M5Stamp, USB power and a supply of Dupont wires. The radio,
-antenna two-pack and breadboard six-pack total **$24.97**, before the tilt sensor.
+antenna two-pack and breadboard six-pack total **$24.97**, or **$44.96 including
+the tilt sensor**.
 That buys spare antennas and breadboards as well as the ones used here.
 
 Buying the M5Stamp and wire kit too brings the listed parts total to **$39.45**,
-excluding USB power and the tilt sensor. The sensor price isn't recorded, so a
-complete total including door feedback is still unavailable. These totals use
+or **$59.44 including the tilt sensor**, excluding USB power. These totals use
 whole-pack prices rather than dividing the cost among the parts used.
 
 These are historical prices, before shipping and tax. An existing Home Assistant
