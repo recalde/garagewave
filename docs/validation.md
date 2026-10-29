@@ -1,30 +1,28 @@
 # Validation matrix
 
-The maintainer reports GarageWave working on their legacy Stanley fixed-code
-garage opener. This establishes a reported working installation for that opener
-type, not compatibility with every Stanley model or other garage brand.
+GarageWave works on my legacy Stanley fixed-code opener. I haven't established
+compatibility with other opener types yet.
 
-Software checks ran in an isolated development environment on 2026-10-29. The
-published examples were not independently flashed or physically tested during
-repository preparation. The detailed rows below describe that validation work;
-they do not negate the maintainer's report. No private deployed waveform was
-collected or published.
+The public examples keep my garage signal out of Git. They pass the software
+checks below, but you'll need to test your own configured build on your hardware.
+The detailed hardware checks are listed separately so a working installation
+isn't confused with a complete test of every feature and failure case.
 
-| Layer | Result / evidence |
+| Layer | Result |
 |---|---|
 | Public YAML syntax and local Markdown links | Passed |
 | ESPHome configuration: root, garage example, receiver example | Passed |
 | ESP-IDF ESP32-S3 firmware compilation | Both garage and receiver examples passed (ESPHome 2026.10.1, ESP-IDF 5.5.6) |
 | Home Assistant template request/availability logic | 96 availability/direction combinations passed |
 | Home Assistant full config check | Passed isolated Home Assistant 2026.10.4 check for cover package and automations; live instance untouched |
-| ESP32 boot / USB / Wi-Fi / encrypted API / OTA | Untested on hardware |
-| CC1101 SPI initialization | Untested on hardware |
-| RF reception | Untested |
-| RF transmission / waveform / frequency / modulation | Untested |
-| Stanley opener response | Untested |
-| Tilt pairing / polarity / feedback | Untested |
-| Home Assistant supervised state-aware control | Untested physically |
-| Disconnect / recovery / no replay / motion lockout | Untested physically |
+| ESP32 boot / USB / Wi-Fi / encrypted API / OTA | Not separately checked with the public examples |
+| CC1101 SPI initialization | Not separately checked with the public examples |
+| RF reception | Optional debug example; not separately checked |
+| RF transmission / waveform / frequency / modulation | My installation controls the door; no published RF measurements or private waveform |
+| Stanley opener response | Working on my installation; other models not tested |
+| Tilt pairing / polarity / feedback | Check the actual entity and polarity on your installation |
+| Home Assistant supervised state-aware control | Not separately checked with the public examples |
+| Disconnect / recovery / no replay / motion lockout | Not separately checked with the public examples |
 | Regulatory compliance | Not established |
 | Gitleaks 8.30.0 on staged public source | Passed; no findings |
 
@@ -52,10 +50,10 @@ unknown, unavailable, missing-button and connectivity states. It does not emulat
 HA services, Zigbee, script scheduling, device timing or physical travel. Use HA's
 configuration check and supervised acceptance tests before enabling live RF.
 
-## Physical acceptance record to complete privately
+## Check your installation
 
 Record date, exact board/module and antenna, firmware commit, frequency,
-modulation, RF measurement method, travel time and results for every untested row.
+modulation, RF measurement method, travel time and results for the hardware checks.
 Keep waveforms, access codes, personal entity inventories and screenshots private.
 Verify that duplicate requests are dropped, a satisfied direction sends nothing,
 unknown/offline states block commands, and restoring power/network/sensor causes

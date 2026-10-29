@@ -2,47 +2,38 @@
 
 **Two chips. Eight jumper wires. One smart garage door.**
 
-GarageWave is basically an ESP32, a CC1101 radio, and eight jumper wires.
-That can be enough to bring an old fixed-code garage door into Home Assistant.
-The hard part is knowing which radio, frequency, and configuration to use.
-The clever software is already in ESPHome and Home Assistant; this project
-puts the wiring, reusable configuration and independent door feedback together.
-No cloud subscription, no new platform, no surgery inside the opener.
+I built GarageWave to bring my old Stanley garage door into Home Assistant.
+The hardware is an ESP32, a CC1101 radio and eight jumper wires. ESPHome handles
+the radio command, and a separate Zigbee tilt sensor tells Home Assistant whether
+the door is open or closed. My original remote still works, and I didn't have to
+modify the opener.
 
-**Working installation: a legacy Stanley fixed-code garage door.**
-GarageWave is in use on the maintainer's Stanley garage. The current garage
-profile is built around that opener type; compatibility with every Stanley model
-or other garage brand is not implied.
+This works on my legacy Stanley fixed-code garage. The current profile is written
+for that opener type. It should be straightforward to adapt to other compatible
+fixed-code openers or RF devices: keep the wiring and packages, then configure the
+right frequency, modulation and signal for your remote. That doesn't mean every
+Stanley model or device on the same frequency will work. Rolling-code systems
+need a different approach. See [protocols and extension ideas](docs/rf-protocols.md).
 
-The same small ESPHome setup can be extended to other compatible fixed-code
-openers and RF devices by adapting the radio settings and transmit signal.
-Match the hardware, frequency, modulation and timing to your device; changing the
-frequency alone is not enough. Rolling-code systems need a different approach.
-See [protocols and extension ideas](docs/rf-protocols.md).
+My garage code stays private. The examples here start with transmission disabled
+so you can set up the device before adding your own signal. They pass configuration
+checks and compile; see [testing](docs/validation.md) for what those checks cover.
 
-The public examples keep transmission disabled and omit the private garage access
-signal. Configure your own credentials and authorized remote signal before use.
-The maintainer's working installation is owner-reported; the published examples
-have passed software checks but have not been independently tested on the garage.
-See the [test matrix](docs/validation.md) for the distinction.
+## The build
 
-**Check the radio before buying:** the Stanley setup targets approximately
-310 MHz. A module advertised for 433 MHz is not automatically suitable, even if
-its CC1101 chip can tune to 310 MHz. Confirm the exact module variant and antenna
-for your build. [Hardware, product links and cost](docs/hardware.md).
+I used an M5Stamp-S3A, a CC1101 module, a mini breadboard, jumper wires and USB
+power. The board and radio cost $16.49 together, before the antenna, breadboard,
+wires and power. A Third Reality Zigbee tilt sensor connects separately to Home
+Assistant through Zigbee. [Parts and prices](docs/hardware.md).
 
-You need an M5Stamp-S3A (ESP32-S3, 8 MB flash), a frequency-appropriate CC1101
-module and antenna, a mini breadboard, eight jumpers and USB power/programming.
-A Third Reality Zigbee tilt sensor provides independent feedback through your
-existing Home Assistant/Zigbee installation. The supplied controller and CC1101 module prices total **$16.49**, before the
-antenna, breadboard, wires and power. See the BOM for price dates, product variants
-and compatibility details.
+The Stanley setup targets approximately 310 MHz. Check the exact radio variant
+and antenna before buying: a CC1101 chip's tuning range doesn't mean a module
+sold for 433 MHz will perform properly at 310 MHz.
 
-![Owner-provided GarageWave assembly on a mini breadboard with jumper wiring and an external antenna](assets/assembly.png)
+![GarageWave on a mini breadboard, connected to the radio and external antenna](assets/assembly.png)
 
-*The GarageWave assembly: a small breadboard, jumper wiring, USB cable and an
-external antenna. Use the wiring map below and your exact module markings when
-reproducing the build; some connections are obscured in the photo.*
+*Here's the assembly. The wiring map below is easier to follow than the wires
+under the glue.*
 
 ![Reference electrical connections, not physical module orientation](assets/wiring.svg)
 

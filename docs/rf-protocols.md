@@ -2,10 +2,9 @@
 
 Frequency matching is necessary but insufficient: module matching, antenna,
 modulation, encoding, pulse timing, repeats and protocol all matter. A ten-position
-DIP switch does not identify a native ESPHome encoder. No Stanley timings,
-modulation measurements or access bits were present in the empty repository.
-The default 310 MHz / ASK-OOK profile is an unverified target, not a decoded signal.
-Raw durations must come from the owner's authorized reference, never invented.
+DIP switch does not identify a native ESPHome encoder. My working garage signal stays private. The public profile targets 310 MHz /
+ASK-OOK, but you need to confirm the settings and waveform for your own remote.
+Use timings from your own authorized remote rather than guessing them.
 
 The reusable radio package uses SPI and native CC1101 asynchronous mode.
 `remote_transmitter` drives GDO0 at 100% carrier duty for OOK baseband, with

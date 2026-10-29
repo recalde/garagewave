@@ -1,7 +1,7 @@
 # Eight electrical connections
 
 [The README pin table](../README.md) and [SVG diagram](../assets/wiring.svg)
-match the owner-supplied reference. The diagram is a logical wiring map, not a
+show the connections used for this build. The diagram is a logical wiring map, not a
 photograph, footprint, connector view or guarantee of module pin orientation.
 Pin 1 must be located using the exact module datasheet and physical markings.
 Do not infer pin numbering from which way an antenna connector points.

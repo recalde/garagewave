@@ -30,7 +30,7 @@
    **in the examples directory**, with private `examples/secrets.yaml`. Its paths
    are relative; do not move it elsewhere without fixing includes. Receiver dumps
    can contain access credentials: keep logs/captures private. The example uses
-   310 MHz and the supplied RX pin but neither RF hardware nor timing is verified.
+   310 MHz and GPIO13 for reception. Check the radio hardware and receiver settings for your signal.
 
 ## Configure your own fixed-code signal privately
 

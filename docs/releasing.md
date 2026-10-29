@@ -3,9 +3,8 @@
 The reusable packages use ESPHome's official
 [packages](https://esphome.io/components/packages/) and
 [substitutions](https://esphome.io/components/substitutions/) mechanisms.
-Credential references remain in the user-local root file. After the files are
-published, users can replace local package includes with immutable commit
-references or a published tag. For example, **only after a real v1.0.0 tag exists**:
+Credential references remain in the user-local root file. You can replace local package includes with an immutable commit
+reference or a published tag. For example, **only after a real v1.0.0 tag exists**:
 
 ```yaml
 packages:
@@ -14,8 +13,7 @@ packages:
   garage: github://recalde/garagewave/esphome/packages/garage-button.yaml@v1.0.0
 ```
 
-These are actual package paths, but **v1.0.0 has not been created**. Until publication
-use the tested local includes; no remote import can fetch unpublished files.
+These are actual package paths, but **v1.0.0 has not been created**. Use the local includes or a commit that exists on GitHub until a tag is published.
 Keep the root Wi-Fi/API/OTA blocks from the local example and override substitutions
 there. Pin a reviewed published commit instead of following a moving branch.
 
@@ -28,7 +26,7 @@ units but changes entity names; explicit node names are clearer for this build.
 USB flashing through Device Builder or CLI is the supported route. Browser-based
 installation and one-click adoption are not advertised or hosted.
 
-## Repository metadata to apply when publication is authorized
+## Repository metadata
 
 Description: An inexpensive, local-first ESPHome radio controller for compatible
 fixed-code garage doors and other sub-GHz devices.
@@ -36,11 +34,9 @@ fixed-code garage doors and other sub-GHz devices.
 Topics: `esphome`, `home-assistant`, `esp32`, `cc1101`, `rf`, `garage-door`,
 `zigbee`, `iot`, `sub-ghz`.
 
-Source publication is separate from creating a version tag or GitHub release.
-Review the [test matrix](validation.md), verify the exact module and sensor models,
-and audit for credentials and RF codes before publication. A source-only preview
-may accurately declare hardware untested; a working-garage release requires actual
-RF, opener, sensor, disconnect/recovery and supervised cover evidence.
+Before tagging a release, run the [checks](validation.md), review the changes for
+credentials and garage signals, and document any new hardware you've tested.
+Keep specific compatibility claims tied to the hardware you've actually used.
 
 ## Suggested first release description
 
@@ -50,8 +46,9 @@ and a Home Assistant cover combining toggle commands with independent Zigbee til
 feedback. Includes installation, compatibility, safety and troubleshooting guides,
 a logical wiring SVG, validation fixtures and CI.
 
-Transmission is disabled by default and no real garage signal is included.
-The original repository was empty. Software validation does not establish RF or
-physical operation; the owned 433 MHz board is not verified for the target 310 MHz
-Stanley opener. See the dated test matrix for actual validation results. This is
-an experimental source preview, not a verified hardware kit or rolling-code product.
+I use GarageWave on my legacy Stanley fixed-code garage. This release shares the
+ESPHome packages, wiring and Home Assistant setup so you can build your own.
+Transmission starts disabled; add your own private remote signal before use.
+Other compatible fixed-code devices can use the same approach with their own
+radio settings and waveform. Rolling-code systems are not supported.
+See the test matrix for software checks and remaining hardware checks.
