@@ -22,9 +22,10 @@ checks and compile; see [testing](docs/validation.md) for what those checks cove
 ## The build
 
 I used an M5Stamp-S3A, a CC1101 module, a mini breadboard, jumper wires and USB
-power. The board and radio cost $16.49 together, before the antenna, breadboard,
-wires and power. A Third Reality Zigbee tilt sensor connects separately to Home
-Assistant through Zigbee. [Parts and prices](docs/hardware.md).
+power. I already had the M5Stamp and USB power; the radio was $8.99. A THIRDREALITY
+Zigbee Smart Garage Door Tilt Sensor connects separately to Home Assistant through
+Zigbee. The board and radio total $16.49, with the remaining parts listed in
+[parts and prices](docs/hardware.md).
 
 The Stanley setup targets approximately 310 MHz. Check the exact radio variant
 and antenna before buying: a CC1101 chip's tuning range doesn't mean a module

@@ -4,11 +4,12 @@ The ESP32 transmits a momentary toggle and never assumes it succeeded. The tilt
 sensor talks separately to Zigbee, not to an ESP GPIO or a firmware entity ID.
 Use the official [Template integration](https://www.home-assistant.io/integrations/template/).
 
-1. Pair the Third Reality Smart Garage Door Tilt Sensor, requested model
-   **3RVS01031Z**, using your ZHA or Zigbee2MQTT setup and the manufacturer's pairing
-   instructions. Confirm the actual model label and supported exposed entities.
+1. I use the THIRDREALITY Zigbee Smart Garage Door Tilt Sensor with adjustable
+   sensitivity and advertised two-year battery life. Pair yours using ZHA or
+   Zigbee2MQTT and the manufacturer's instructions. Check the model label and
+   supported exposed entities.
    [Manufacturer firmware/support](https://www.thirdreality.com/pages/firmware/garage-door-tilt-sensor)
-   mentions both platforms; this project's exact-device pairing remains untested.
+   covers both platforms; check the notes for your sensor's model and firmware.
 2. Find the entity exposing door/contact state in Developer Tools → States.
    Observe and record its state with the garage fully closed and fully open.
    Do not assume `on` means open. Verify mounting, polarity and offline behavior.
